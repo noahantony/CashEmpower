@@ -7,8 +7,7 @@
         <!--Cash Empower-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <viewController title="Cash Empower" id="BYZ-38-t0r" customClass="ViewController" customModule="CashEmpower" colorLabel="IBBuiltInLabel-Blue" sceneMemberID="viewController">
+                <viewController title="Cash Empower" id="BYZ-38-t0r" customClass="ViewController" customModule="CashEmpower" customModuleProvider="target" colorLabel="IBBuiltInLabel-Blue" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -40,7 +39,7 @@
                                 </state>
                                 <connections>
                                     <action selector="loginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dwy-i6-pgG"/>
-                                    <segue destination="7Q2-M7-r8W" kind="show" id="Lp4-an-H97"/>
+                                    <segue destination="v8c-0b-v1k" kind="show" identifier="HomePage" id="htt-2t-cnD"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -52,28 +51,62 @@
                         <outlet property="userName" destination="DIY-HM-aB3" id="vAe-8z-N3X"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-151" y="386"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="bd0-h6-2EO">
+        <!--User-->
+        <scene sceneID="1c6-q8-OHa">
             <objects>
-                <viewController id="7Q2-M7-r8W" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="l8p-Ol-zPo"/>
-                        <viewControllerLayoutGuide type="bottom" id="j2V-cB-JkA"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cQm-R0-6wa">
+                <tableViewController title="User" id="eIl-ly-NBW" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="7CZ-wG-nY7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KUu-vi-t42" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="gsa-h6-bZ8">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gsa-h6-bZ8" id="rFh-GD-f78">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="v8c-0b-v1k" kind="show" id="opD-rq-rFC"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="eIl-ly-NBW" id="I5Z-m9-Jv4"/>
+                            <outlet property="delegate" destination="eIl-ly-NBW" id="lsb-WG-biB"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="zxq-eJ-is8"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h1k-Oz-aLG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="328" y="415"/>
+            <point key="canvasLocation" x="958" y="289"/>
+        </scene>
+        <!--Home Page-->
+        <scene sceneID="Hzl-2j-Pqe">
+            <objects>
+                <navigationController title="Home Page" id="v8c-0b-v1k" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LuY-A8-I1q">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="eIl-ly-NBW" kind="relationship" relationship="rootViewController" id="V2e-Db-RBz"/>
+                        <segue destination="eIl-ly-NBW" kind="show" id="YYA-Fd-quW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gqA-Si-AI1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="417" y="247"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="V2e-Db-RBz"/>
+        <segue reference="opD-rq-rFC"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>
